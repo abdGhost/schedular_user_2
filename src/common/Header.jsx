@@ -1,8 +1,15 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ userProfile }) {
   const [toggleNotification, setToggleNotification] = useState(false);
   const [toggleProfile, setToggleProfile] = useState(false);
+
+  const navigate = useNavigate();
+
+  const { Name } = userProfile;
+  console.log(Name);
   return (
     <>
       <div className="py-2 px-6 bg-[#ffffff] flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
@@ -173,7 +180,7 @@ export default function Header() {
                       />
                       <div className="ml-2">
                         <div className="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                          John Doe
+                          `${Name}`
                         </div>
                         <div className="text-[11px] text-gray-400">
                           Hello there!
@@ -299,12 +306,15 @@ export default function Header() {
               } py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]`}
             >
               <li>
-                <a
-                  href="#"
+                <span
+                  onClick={() => {
+                    navigate("/dashboard/profile");
+                    setToggleProfile(false);
+                  }}
                   className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50"
                 >
                   Profile
-                </a>
+                </span>
               </li>
               <li>
                 <form method="POST" action="">

@@ -29,8 +29,9 @@ export default function Login() {
   const onSubmit = async (data) => {
     const res = await API.UserLogin(data);
 
-    if (res.data.status) {
-      localStorage.setItem("token", res.data.token);
+    if (res.data.status === "success") {
+      localStorage.setItem("token", res.data.jwtToken.accessToken);
+
       toast.success(res.data.message, {
         position: "top-right",
         autoClose: 5000,
