@@ -85,6 +85,17 @@ export default function SideNav() {
               <span className="text-sm">Profile</span>
             </span>
           </li>
+          {/* Profile */}
+          <span className="text-gray-400 font-bold">Employee</span>
+          <li
+            className="mb-1 group"
+            onClick={() => navigate("/dashboard/employee")}
+          >
+            <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+              <i className="ri-home-2-line mr-3 text-lg"></i>
+              <span className="text-sm">Employee</span>
+            </span>
+          </li>
         </ul>
       </div>
       <div className="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>

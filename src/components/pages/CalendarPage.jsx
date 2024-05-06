@@ -54,26 +54,6 @@ const CalendarPage = () => {
     },
   ];
 
-  console.log(
-    "sssss",
-    new Date(
-      startDate?.year,
-      startDate?.month,
-      startDate?.day,
-      startDate?.hour,
-      startDate?.minute,
-      startDate?.second
-    ),
-    new Date(
-      endDate?.year,
-      endDate?.day,
-      endDate?.month,
-      endDate?.hour,
-      endDate?.minute,
-      endDate?.second
-    )
-  );
-
   const EventComponent = ({ event }) => (
     <div>
       <strong>{event.title}</strong>

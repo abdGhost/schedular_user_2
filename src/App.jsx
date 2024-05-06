@@ -8,6 +8,7 @@ import Layout from "./common/Layout";
 import "./index.css";
 import "./app.css";
 import Profile from "./components/pages/Profile";
+import Employee from "./components/pages/Employee";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/dashboard/task" element={<CalendarPage />} />
             <Route path="/dashboard/profile" element={<Profile />} />
           </Route>
+          <Route path="/employee" element={<Employee />} />
         </Routes>
       </BrowserRouter>
     </>

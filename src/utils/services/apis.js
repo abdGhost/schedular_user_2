@@ -16,6 +16,14 @@ const API = axios.create({
   },
 });
 
+const APIWithFile = axios.create({
+  baseURL: baseUrl(),
+  headers: {
+    "Content-Type": "multipart/form-data",
+    "Access-Control-Allow-Origin": "*",
+  },
+});
+
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("token")) {
     req.headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`;
@@ -26,3 +34,6 @@ API.interceptors.request.use((req) => {
 export const UserLogin = (data) => API.post("/user/login", data);
 
 export const GetTask = () => API.get("/user/task");
+
+export const AddEmployee = (data) =>
+  APIWithFile.post("/admin/add/employee", data);
