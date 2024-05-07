@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseUrl = () => {
   if (process.env.NODE_ENV === "development") {
-    return "http://localhost:8001/api";
+    return "http://localhost:5000";
   } else if (process.env.NODE_ENV === "production") {
     return "/";
   }
@@ -27,11 +27,14 @@ const APIWithFile = axios.create({
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("token")) {
     req.headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`;
+    console.log(`Bearer ${localStorage.getItem("token")}`);
   }
   return req;
 });
 
-export const UserLogin = (data) => API.post("/user/login", data);
+// export const UserLogin = (data) => API.post("/user/login", data);
+export const UserLogin = (data) => API.post("/api/auth/employeeLogin", data);
+export const UserProfile = () => API.get("/employee/getEmployeeData");
 
 export const GetTask = () => API.get("/user/task");
 
