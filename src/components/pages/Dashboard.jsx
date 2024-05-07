@@ -11,41 +11,9 @@ function Dashboard() {
                 <div className="flex items-center mb-1">
                   <div className="text-2xl font-semibold">2</div>
                 </div>
-                <div className="text-sm font-medium text-gray-400">Users</div>
-              </div>
-              <div className="dropdown">
-                <button
-                  type="button"
-                  className="dropdown-toggle text-gray-400 hover:text-gray-600"
-                >
-                  <i className="ri-more-fill"></i>
-                </button>
-                <ul className="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Logout
-                    </a>
-                  </li>
-                </ul>
+                <div className="text-sm font-medium text-gray-400">
+                  Total Task
+                </div>
               </div>
             </div>
           </div>
@@ -54,52 +22,18 @@ function Dashboard() {
               <div>
                 <div className="flex items-center mb-1">
                   <div className="text-2xl font-semibold">100</div>
-                  <div className="p-1 rounded bg-emerald-500/10 text-emerald-500 text-[12px] font-semibold leading-none ml-2">
+                  {/* <div className="p-1 rounded bg-emerald-500/10 text-emerald-500 text-[12px] font-semibold leading-none ml-2">
                     +30%
-                  </div>
+                  </div> */}
                 </div>
                 <div className="text-sm font-medium text-gray-400">
-                  Companies
+                  Total Leave
                 </div>
-              </div>
-              <div className="dropdown">
-                <button
-                  type="button"
-                  className="dropdown-toggle text-gray-400 hover:text-gray-600"
-                >
-                  <i className="ri-more-fill"></i>
-                </button>
-                <ul className="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Logout
-                    </a>
-                  </li>
-                </ul>
               </div>
             </div>
             <a
               href="/dierenartsen"
-              className="text-[#f84525] font-medium text-sm hover:text-red-800"
+              className="text-[#60a132] font-medium text-sm hover:text-red-800"
             >
               View
             </a>
@@ -108,53 +42,21 @@ function Dashboard() {
             <div className="flex justify-between mb-6">
               <div>
                 <div className="text-2xl font-semibold mb-1">100</div>
-                <div className="text-sm font-medium text-gray-400">Blogs</div>
-              </div>
-              <div className="dropdown">
-                <button
-                  type="button"
-                  className="dropdown-toggle text-gray-400 hover:text-gray-600"
-                >
-                  <i className="ri-more-fill"></i>
-                </button>
-                <ul className="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Logout
-                    </a>
-                  </li>
-                </ul>
+                <div className="text-sm font-medium text-gray-400">
+                  Total Payment
+                </div>
               </div>
             </div>
             <a
               href=""
-              className="text-[#f84525] font-medium text-sm hover:text-red-800"
+              className="text-[#60a132] font-medium text-sm hover:text-red-800"
             >
               View
             </a>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          <div className="p-6 relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
+          {/* <div className="p-6 relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
             <div className="rounded-t mb-0 px-0 border-0">
               <div className="flex flex-wrap items-center px-4 py-2">
                 <div className="relative w-full max-w-full flex-grow flex-1">
@@ -265,47 +167,32 @@ function Dashboard() {
                 </table>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
             <div className="flex justify-between mb-4 items-start">
-              <div className="font-medium">Activities</div>
-              <div className="dropdown">
-                <button
-                  type="button"
-                  className="dropdown-toggle text-gray-400 hover:text-gray-600"
-                >
-                  <i className="ri-more-fill"></i>
-                </button>
-                <ul className="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                    >
-                      Logout
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <div className="font-bold text-lg">Activities</div>
             </div>
             <div className="overflow-hidden">
               <table className="w-full min-w-[540px]">
+                <thead>
+                  <tr>
+                    <th className="py-2 px-6 border-b border-b-gray-200 text-left text-sm font-bold text-gray-600">
+                      Name
+                    </th>
+                    <th className="py-2 px-4 border-b border-b-gray-200 text-left text-sm font-bold text-gray-600">
+                      Date
+                    </th>
+                    <th className="py-2 px-4 border-b border-b-gray-200 text-left text-sm font-bold text-gray-600">
+                      Start Time
+                    </th>
+                    <th className="py-2 px-4 border-b border-b-gray-200 text-left text-sm font-bold text-gray-600">
+                      End Time
+                    </th>
+                    <th className="py-2 px-4 border-b border-b-gray-200">
+                      {/* This is an empty header for alignment */}
+                    </th>
+                  </tr>
+                </thead>
                 <tbody>
                   <tr>
                     <td className="py-2 px-4 border-b border-b-gray-50">
@@ -314,7 +201,7 @@ function Dashboard() {
                           href="#"
                           className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
                         >
-                          Lorem Ipsum
+                          Task 1
                         </a>
                       </div>
                     </td>
@@ -329,41 +216,11 @@ function Dashboard() {
                       </span>
                     </td>
                     <td className="py-2 px-4 border-b border-b-gray-50">
-                      <div className="dropdown">
-                        <button
-                          type="button"
-                          className="dropdown-toggle text-gray-400 hover:text-gray-600 text-sm w-6 h-6 rounded flex items-center justify-center bg-gray-50"
-                        >
-                          <i className="ri-more-2-fill"></i>
-                        </button>
-                        <ul className="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
-                          <li>
-                            <a
-                              href="#"
-                              className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                            >
-                              Profile
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                            >
-                              Settings
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                            >
-                              Logout
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
                     </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
                   </tr>
                   <tr>
                     <td className="py-2 px-4 border-b border-b-gray-50">
@@ -372,7 +229,7 @@ function Dashboard() {
                           href="#"
                           className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
                         >
-                          Lorem Ipsum
+                          Task 3
                         </a>
                       </div>
                     </td>
@@ -387,41 +244,151 @@ function Dashboard() {
                       </span>
                     </td>
                     <td className="py-2 px-4 border-b border-b-gray-50">
-                      <div className="dropdown">
-                        <button
-                          type="button"
-                          className="dropdown-toggle text-gray-400 hover:text-gray-600 text-sm w-6 h-6 rounded flex items-center justify-center bg-gray-50"
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <div className="flex items-center">
+                        <a
+                          href="#"
+                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
                         >
-                          <i className="ri-more-2-fill"></i>
-                        </button>
-                        <ul className="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
-                          <li>
-                            <a
-                              href="#"
-                              className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                            >
-                              Profile
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                            >
-                              Settings
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                            >
-                              Logout
-                            </a>
-                          </li>
-                        </ul>
+                          Task 3
+                        </a>
                       </div>
                     </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        02-02-2024
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <div className="flex items-center">
+                        <a
+                          href="#"
+                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
+                        >
+                          Task 4
+                        </a>
+                      </div>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        02-02-2024
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <div className="flex items-center">
+                        <a
+                          href="#"
+                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
+                        >
+                          Task 5
+                        </a>
+                      </div>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        02-02-2024
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <div className="flex items-center">
+                        <a
+                          href="#"
+                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
+                        >
+                          Task 6
+                        </a>
+                      </div>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        02-02-2024
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <div className="flex items-center">
+                        <a
+                          href="#"
+                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
+                        >
+                          Task 7
+                        </a>
+                      </div>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        02-02-2024
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50">
+                      <span className="text-[13px] font-medium text-gray-400">
+                        17.45
+                      </span>
+                    </td>
+                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
                   </tr>
                 </tbody>
               </table>

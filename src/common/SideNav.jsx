@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function SideNav() {
@@ -8,7 +7,7 @@ export default function SideNav() {
       <div className="fixed left-0 top-0 w-64 h-full bg-[#ffffff] p-4 z-50 sidebar-menu transition-transform">
         <span className="flex items-center pb-4 border-b border-b-gray-800">
           <h2 className="font-bold text-2xl">
-            <span className="bg-[#6ba0dd] text-white p-2 rounded-md">
+            <span className="bg-[#40A2E3] text-white p-2 rounded-md">
               Schedular
             </span>
           </h2>
@@ -43,22 +42,25 @@ export default function SideNav() {
           </li>
 
           <span className="text-gray-400 font-bold">History</span>
-          <li className="mb-1 group">
-            <a
-              href=""
-              className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
-            >
+          <li
+            className="mb-1 group"
+            onClick={() => navigate("/dashboard/leave")}
+          >
+            <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
               <i className="bx bx-bell mr-3 text-lg"></i>
-              <span className="text-sm">Task</span>
+              <span className="text-sm">Task History</span>
               <span className="md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-600 bg-red-200 rounded-full">
                 5
               </span>
-            </a>
+            </span>
           </li>
-          <li className="mb-1 group">
+          <li
+            className="mb-1 group"
+            onClick={() => navigate("/dashboard/leave")}
+          >
             <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
               <i className="bx bx-envelope mr-3 text-lg"></i>
-              <span className="text-sm">Payment</span>
+              <span className="text-sm">Payment </span>
               <span className="md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-600 bg-green-200 rounded-full">
                 2 New
               </span>
@@ -76,7 +78,7 @@ export default function SideNav() {
               <span className="text-sm">Profile</span>
             </span>
           </li>
-          {/* Profile */}
+          {/* Profile
           <span className="text-gray-400 font-bold">Employee</span>
           <li
             className="mb-1 group"
@@ -86,7 +88,7 @@ export default function SideNav() {
               <i className="ri-home-2-line mr-3 text-lg"></i>
               <span className="text-sm">Employee</span>
             </span>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
