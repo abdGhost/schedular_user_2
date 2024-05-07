@@ -1,63 +1,78 @@
+/* eslint-disable react/prop-types */
 import globalize from "globalize";
-import { useEffect, useState } from "react";
 import { Calendar, globalizeLocalizer } from "react-big-calendar";
-import moment from "moment";
-
-import * as API from "../../utils/services/apis";
-import { elapsedTime } from "../../helpers/convertDate";
 
 const localizer = globalizeLocalizer(globalize);
 
 const CalendarPage = () => {
-  const [taskList, setTaskList] = useState([]);
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const tasks = {
+    message: "Assigned tasks of the week retrieved successfully",
+    status: true,
+    assignedTasks: [
+      {
+        date: "05-05-2024",
+        employeeName: "John Doe",
+        officeName: "careLiving",
+        totalHours: 2.5,
+        taskName: "Task 1",
+        startTime: "5:30 am",
+        endTime: "8:00 am",
+        taskId: "ATASK-ID1002",
+      },
+      {
+        date: "05-06-2024",
+        employeeName: "John Doe",
+        officeName: "careLiving",
+        totalHours: 2.5,
+        taskName: "Task 1",
+        startTime: "5:30 am",
+        endTime: "8:00 pm",
+        taskId: "ATASK-ID1002",
+      },
+      {
+        date: "08-06-2024",
+        employeeName: "John Doe",
+        officeName: "careLiving",
+        totalHours: 2.5,
+        taskName: "Task 1",
+        startTime: "5:30 am",
+        endTime: "8:00 pm",
+        taskId: "ATASK-ID1002",
+      },
+    ],
+  };
 
-  useEffect(() => {
-    async function getTask() {
-      const res = await API.GetTask();
-      setTaskList(res.data.task);
+  function parseDateTime(dateStr, timeStr) {
+    const [time, modifier] = timeStr.split(" ");
+    let [hours, minutes] = time.split(":");
+
+    if (modifier.toLowerCase() === "pm" && hours !== "12") {
+      hours = parseInt(hours, 10) + 12;
+    } else if (modifier.toLowerCase() === "am" && hours === "12") {
+      hours = 0;
     }
-    getTask();
 
-    const result1 = elapsedTime(
-      moment(new Date(2024, 4, 5, 10, 0, 0)).format()
-    );
-    setStartDate(result1);
+    const [month, day, year] = dateStr.split("-");
+    const formattedDate = new Date(year, month - 1, day, hours, minutes);
 
-    const result2 = elapsedTime(
-      moment(new Date(2024, 4, 5, 19, 0, 0)).format()
-    );
-    setEndDate(result2);
-  }, []);
+    return formattedDate;
+  }
 
-  const myEventsList = [
-    {
-      title: "Test",
-      subtitle: "Subtitle for Test88",
-      start: new Date(
-        startDate?.year,
-        startDate?.day,
-        startDate?.month,
-        startDate?.hour,
-        startDate?.minute,
-        startDate?.second
-      ),
-      end: new Date(
-        endDate?.year,
-        endDate?.month,
-        endDate?.day,
-        endDate?.hour,
-        endDate?.minute,
-        endDate?.second
-      ),
-    },
-  ];
+  const events = tasks.assignedTasks.map((task) => ({
+    title: task.taskName,
+    office: task.officeName,
+    totalHours: `${task.totalHours} hours`,
+    start: parseDateTime(task.date, task.startTime),
+    end: parseDateTime(task.date, task.endTime),
+
+    allDay: false,
+  }));
 
   const EventComponent = ({ event }) => (
     <div>
       <strong>{event.title}</strong>
-      {event.subtitle && <p>{event.subtitle}</p>}
+      {event.office && <p>{event.office}</p>}
+      {event.totalHours && <p>{event.totalHours}</p>}
     </div>
   );
 
@@ -65,7 +80,7 @@ const CalendarPage = () => {
     <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3 vh-">
       <Calendar
         localizer={localizer}
-        events={myEventsList}
+        events={events}
         startAccessor="start"
         endAccessor="end"
         components={{ event: EventComponent }}
