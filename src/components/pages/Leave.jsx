@@ -6,7 +6,9 @@ export default function Leave() {
           <div className="container max-w-screen-lg mx-auto">
             <div>
               <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-                <div className="pl-4 text-black font-bold">Leave Form</div>
+                <div className="pl-4 text-black font-bold text-xl">
+                  Leave Form
+                </div>
                 <div className="p-4 gap-4 gap-y-2 text-sm text-gray-600">
                   <div className="lg:col-span-2">
                     <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">

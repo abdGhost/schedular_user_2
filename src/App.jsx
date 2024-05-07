@@ -12,6 +12,9 @@ import Employee from "./components/pages/Employee";
 import Leave from "./components/pages/Leave";
 import { useEffect, useState } from "react";
 
+import TaskHistory from "./components/pages/TaskHistory";
+import PaymentHistory from "./components/pages/PaymentHistory";
+
 import * as API from "../src/utils/services/apis";
 
 export default function App() {
@@ -42,6 +45,11 @@ export default function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/task" element={<CalendarPage />} />
             <Route path="/dashboard/leave" element={<Leave />} />
+            <Route path="/dashboard/taskHistory" element={<TaskHistory />} />
+            <Route
+              path="/dashboard/paymentHistory"
+              element={<PaymentHistory />}
+            />
 
             <Route
               path="/dashboard/profile"
