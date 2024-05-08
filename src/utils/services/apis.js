@@ -35,6 +35,7 @@ API.interceptors.request.use((req) => {
 // export const UserLogin = (data) => API.post("/user/login", data);
 export const UserLogin = (data) => API.post("/api/auth/employeeLogin", data);
 export const UserProfile = () => API.get("/employee/getEmployeeData");
+export const AssignedTask = () => API.get("/employee/getAssignedTask");
 
 export const GetTask = () => API.get("/user/task");
 

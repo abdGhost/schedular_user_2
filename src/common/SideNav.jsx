@@ -47,7 +47,7 @@ export default function SideNav() {
             onClick={() => navigate("/dashboard/taskHistory")}
           >
             <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-              <i className="bx bx-bell mr-3 text-lg"></i>
+              <i className="bx bx-task mr-3 text-lg"></i>
               <span className="text-sm">Task History</span>
               <span className="md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-600 bg-red-200 rounded-full">
                 5
@@ -59,7 +59,7 @@ export default function SideNav() {
             onClick={() => navigate("/dashboard/paymentHistory")}
           >
             <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-              <i className="bx bx-envelope mr-3 text-lg"></i>
+              <i className="bx bx-note mr-3 text-lg"></i>
               <span className="text-sm">Payment </span>
               <span className="md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-600 bg-green-200 rounded-full">
                 2 New
@@ -74,7 +74,7 @@ export default function SideNav() {
             onClick={() => navigate("/dashboard/profile")}
           >
             <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-              <i className="ri-home-2-line mr-3 text-lg"></i>
+              <i className="bx bx-task mr-3 text-lg"></i>
               <span className="text-sm">Profile</span>
             </span>
           </li>

@@ -1,4 +1,28 @@
+import { useState, useEffect } from "react";
+import * as API from "../../utils/services/apis";
+
 export default function TaskHistory() {
+  const [assignedTasks, setAssignedTask] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    async function getAssignedTask() {
+      try {
+        setIsLoading(true);
+        const res = await API.AssignedTask();
+        console.log(res.data);
+        setAssignedTask(res.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    getAssignedTask();
+  }, []);
+
+  const data = assignedTasks.list ? assignedTasks.list : [];
+
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
@@ -30,49 +54,26 @@ export default function TaskHistory() {
               </tr>
             </thead>
             <tbody>
-              {Array.from({ length: 7 }, (_, i) => (
-                <tr key={i}>
+              {data.map((item, index) => (
+                <tr key={index}>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    <div className="flex items-center">
-                      <a
-                        href="#"
-                        className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                      >
-                        Office {i + 1}
-                      </a>
-                    </div>
+                    {item.officeName}
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    <div className="flex items-center">
-                      <a
-                        href="#"
-                        className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                      >
-                        Task {i + 1}
-                      </a>
-                    </div>
+                    {item.taskName}
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    <span className="text-[13px] font-medium text-gray-400">
-                      02-02-2024
-                    </span>
+                    {item.date}
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    <span className="text-[13px] font-medium text-gray-400">
-                      17:45
-                    </span>
+                    {item.startTime}
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    <span className="text-[13px] font-medium text-gray-400">
-                      17:45
-                    </span>
+                    {item.endTime}
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    <span className="text-[13px] font-medium text-gray-400">
-                      18:30
-                    </span>
+                    {item.totalHours}
                   </td>
-                  <td className="py-2 px-4 border-b border-b-gray-50"></td>
                 </tr>
               ))}
             </tbody>

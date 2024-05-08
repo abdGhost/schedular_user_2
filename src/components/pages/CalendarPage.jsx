@@ -1,46 +1,32 @@
 /* eslint-disable react/prop-types */
 import globalize from "globalize";
+import { useState } from "react";
+import { useEffect } from "react";
 import { Calendar, globalizeLocalizer } from "react-big-calendar";
+
+import * as API from "../../utils/services/apis";
 
 const localizer = globalizeLocalizer(globalize);
 
 const CalendarPage = () => {
-  const tasks = {
-    message: "Assigned tasks of the week retrieved successfully",
-    status: true,
-    assignedTasks: [
-      {
-        date: "05-05-2024",
-        employeeName: "John Doe",
-        officeName: "careLiving",
-        totalHours: 2.5,
-        taskName: "Task 1",
-        startTime: "5:30 am",
-        endTime: "8:00 am",
-        taskId: "ATASK-ID1002",
-      },
-      {
-        date: "05-06-2024",
-        employeeName: "John Doe",
-        officeName: "careLiving",
-        totalHours: 2.5,
-        taskName: "Task 1",
-        startTime: "5:30 am",
-        endTime: "8:00 pm",
-        taskId: "ATASK-ID1002",
-      },
-      {
-        date: "08-06-2024",
-        employeeName: "John Doe",
-        officeName: "careLiving",
-        totalHours: 2.5,
-        taskName: "Task 1",
-        startTime: "5:30 am",
-        endTime: "8:00 pm",
-        taskId: "ATASK-ID1002",
-      },
-    ],
-  };
+  const [assignedTasks, setAssignedTask] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    async function getAssignedTask() {
+      try {
+        setIsLoading(true);
+        const res = await API.AssignedTask();
+        console.log(res.data);
+        setAssignedTask(res.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    getAssignedTask();
+  }, []);
 
   function parseDateTime(dateStr, timeStr) {
     const [time, modifier] = timeStr.split(" ");
@@ -58,15 +44,16 @@ const CalendarPage = () => {
     return formattedDate;
   }
 
-  const events = tasks.assignedTasks.map((task) => ({
-    title: task.taskName,
-    office: task.officeName,
-    totalHours: `${task.totalHours} hours`,
-    start: parseDateTime(task.date, task.startTime),
-    end: parseDateTime(task.date, task.endTime),
-
-    allDay: false,
-  }));
+  const events = assignedTasks.list
+    ? assignedTasks.list.map((task) => ({
+        title: task.taskName,
+        office: task.officeName,
+        totalHours: `${task.totalHours} hours`,
+        start: parseDateTime(task.date, task.startTime),
+        end: parseDateTime(task.date, task.endTime),
+        allDay: false,
+      }))
+    : [];
 
   const EventComponent = ({ event }) => (
     <div>
