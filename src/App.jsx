@@ -9,12 +9,10 @@ import "./index.css";
 import "./app.css";
 import Profile from "./components/pages/Profile";
 import Employee from "./components/pages/Employee";
-import Leave from "./components/pages/Leave";
-import { useEffect, useState } from "react";
 
 import TaskHistory from "./components/pages/TaskHistory";
 import PaymentHistory from "./components/pages/PaymentHistory";
-import * as API from "../src/utils/services/apis";
+
 import LeaveRequestForm from "./components/pages/LeaveRequestForm";
 
 export default function App() {

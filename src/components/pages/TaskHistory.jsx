@@ -25,12 +25,12 @@ export default function TaskHistory() {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
+      <div className="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md w-full">
         <div className="flex justify-between mb-4 items-start">
           <div className="font-bold text-xl">Activities</div>
         </div>
-        <div className="overflow-hidden">
-          <table className="w-full min-w-[786px] min-h-[540px] mx-auto">
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[786px] md:min-w-full">
             <thead>
               <tr>
                 <th className="py-2 px-6 border-b border-b-gray-200 text-left text-sm font-bold text-gray-600">
