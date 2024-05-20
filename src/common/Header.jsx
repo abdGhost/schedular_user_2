@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Drawer } from "flowbite-react";
+
+// import DrawerSidebar from "./DrawerSidebar";
 
 export default function Header({ userProfile }) {
   const [toggleNotification, setToggleNotification] = useState(false);
@@ -10,6 +13,14 @@ export default function Header({ userProfile }) {
 
   const { Name } = userProfile;
   console.log(Name);
+  const [show, setShow] = useState(false);
+
+  // const handleClose = () => setIsOpen(false);
+
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleClose = () => setIsOpen(false);
+
   return (
     <>
       <div className="py-2 px-6 bg-[#ffffff] flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
@@ -17,7 +28,7 @@ export default function Header({ userProfile }) {
           type="button"
           className="text-lg text-gray-900 font-semibold sidebar-toggle"
         >
-          <i className="ri-menu-line"></i>
+          <i onClick={() => setIsOpen(true)} className="ri-menu-line"></i>
         </button>
 
         <ul className="ml-auto flex items-center">
@@ -332,6 +343,113 @@ export default function Header({ userProfile }) {
           </li>
         </ul>
       </div>
+
+      <Drawer open={isOpen} onClose={handleClose}>
+        <Drawer.Header title="Schedular" />
+        <Drawer.Items>
+          <ul className="mt-4">
+            <span className="text-gray-400 font-bold">Activity</span>
+            <li className="mb-1 group" onClick={() => navigate("/dashboard")}>
+              <span
+                style={{ cursor: "pointer" }}
+                className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+              >
+                <i className="ri-home-2-line mr-3 text-lg"></i>
+                <span className="text-sm">Dashboard</span>
+              </span>
+            </li>
+
+            <li
+              className="mb-1 group"
+              onClick={() => navigate("/dashboard/task")}
+            >
+              <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                <i className="bx bx-list-ul mr-3 text-lg"></i>
+                <span style={{ cursor: "pointer" }} className="text-sm">
+                  Tasks
+                </span>
+              </span>
+            </li>
+            <span
+              style={{ cursor: "pointer" }}
+              className="text-gray-400 font-bold"
+            >
+              Leave
+            </span>
+            <li
+              className="mb-1 group"
+              onClick={() => navigate("/dashboard/leave")}
+            >
+              <span
+                style={{ cursor: "pointer" }}
+                className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+              >
+                <i className="bx bx-archive mr-3 text-lg"></i>
+                <span style={{ cursor: "pointer" }} className="text-sm">
+                  Leave
+                </span>
+              </span>
+            </li>
+
+            <span
+              style={{ cursor: "pointer" }}
+              className="text-gray-400 font-bold"
+            >
+              History
+            </span>
+            <li
+              className="mb-1 group"
+              onClick={() => navigate("/dashboard/taskHistory")}
+            >
+              <span
+                style={{ cursor: "pointer" }}
+                className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+              >
+                <i className="bx bx-task mr-3 text-lg"></i>
+                <span className="text-sm">Task History</span>
+                <span className="md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-600 bg-red-200 rounded-full">
+                  5
+                </span>
+              </span>
+            </li>
+            <li
+              className="mb-1 group"
+              onClick={() => navigate("/dashboard/paymentHistory")}
+            >
+              <span
+                style={{ cursor: "pointer" }}
+                className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+              >
+                <i className="bx bx-note mr-3 text-lg"></i>
+                <span className="text-sm">Payment </span>
+                <span className="md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-600 bg-green-200 rounded-full">
+                  2 New
+                </span>
+              </span>
+            </li>
+
+            {/* Profile */}
+            <span
+              style={{ cursor: "pointer" }}
+              className="text-gray-400 font-bold"
+            >
+              Profile
+            </span>
+            <li
+              className="mb-1 group"
+              onClick={() => navigate("/dashboard/profile")}
+            >
+              <span
+                style={{ cursor: "pointer" }}
+                className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+              >
+                <i className="bx bx-task mr-3 text-lg"></i>
+                <span className="text-sm">Profile</span>
+              </span>
+            </li>
+          </ul>
+        </Drawer.Items>
+      </Drawer>
     </>
   );
 }

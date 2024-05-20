@@ -5,6 +5,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import SideNav from "./SideNav";
 import * as API from "../utils/services/apis";
+import Leftbar from "./Leftbar";
 
 const Layout = ({ userProfile }) => {
   const navigate = useNavigate();
@@ -33,11 +34,27 @@ const Layout = ({ userProfile }) => {
 
   return (
     <>
-      <SideNav />
+      {/* <SideNav />
       <Header userProfile={userProfile1} />
       <main className="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main">
         <Outlet />
-      </main>
+      </main> */}
+
+      <div>
+        <div>
+          <Header userProfile={userProfile1} />
+          <div className="flex flex-row overflow-auto">
+            <div className="basis-1/12 max-[760px]:hidden lg:block ">
+              <Leftbar onHide={() => console.log("======")} />{" "}
+            </div>
+            <div className="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main h-auto max-[760px]:basis-12/12  lg:basis-11/12">
+              {" "}
+              <Outlet />
+            </div>
+          </div>
+        </div>
+        ð
+      </div>
     </>
   );
 };
