@@ -1,4 +1,26 @@
+import { useEffect, useState } from "react";
+import * as API from "../../utils/services/apis";
+
 function Dashboard() {
+  const [assignTask, setAssignTask] = useState([]);
+
+  useEffect(() => {
+    async function getAssignTask() {
+      try {
+        const res = await API.AssignedTask();
+        console.log("==========================================");
+        console.log(res.data.list);
+        if (Array.isArray(res.data.list)) {
+          setAssignTask(res.data.list);
+        } else {
+          console.error("API response is not an array:", res.data.list);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    getAssignTask();
+  }, []);
   return (
     <>
       <div className="p-6">
@@ -20,9 +42,6 @@ function Dashboard() {
               <div>
                 <div className="flex items-center mb-1">
                   <div className="text-2xl font-semibold">100</div>
-                  {/* <div className="p-1 rounded bg-emerald-500/10 text-emerald-500 text-[12px] font-semibold leading-none ml-2">
-                    +30%
-                  </div> */}
                 </div>
                 <div className="text-sm font-medium text-gray-400">
                   Total Leave
@@ -79,203 +98,38 @@ function Dashboard() {
                     </th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <div className="flex items-center">
-                        <a
-                          href="#"
-                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                        >
-                          Task 1
-                        </a>
-                      </div>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        02-02-2024
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <div className="flex items-center">
-                        <a
-                          href="#"
-                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                        >
-                          Task 3
-                        </a>
-                      </div>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        02-02-2024
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <div className="flex items-center">
-                        <a
-                          href="#"
-                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                        >
-                          Task 3
-                        </a>
-                      </div>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        02-02-2024
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <div className="flex items-center">
-                        <a
-                          href="#"
-                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                        >
-                          Task 4
-                        </a>
-                      </div>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        02-02-2024
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <div className="flex items-center">
-                        <a
-                          href="#"
-                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                        >
-                          Task 5
-                        </a>
-                      </div>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        02-02-2024
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <div className="flex items-center">
-                        <a
-                          href="#"
-                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                        >
-                          Task 6
-                        </a>
-                      </div>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        02-02-2024
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <div className="flex items-center">
-                        <a
-                          href="#"
-                          className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                        >
-                          Task 7
-                        </a>
-                      </div>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        02-02-2024
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50">
-                      <span className="text-[13px] font-medium text-gray-400">
-                        17.45
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border-b border-b-gray-50"></td>
-                  </tr>
+                  {assignTask.map((task, index) => (
+                    <tr key={index}>
+                      <td className="py-2 px-4 border-b border-b-gray-50">
+                        <div className="flex items-center">
+                          <a
+                            href="#"
+                            className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
+                          >
+                            {task.taskName}
+                          </a>
+                        </div>
+                      </td>
+                      <td className="py-2 px-4 border-b border-b-gray-50">
+                        <span className="text-[13px] font-medium text-gray-400">
+                          {task.date}
+                        </span>
+                      </td>
+                      <td className="py-2 px-4 border-b border-b-gray-50">
+                        <span className="text-[13px] font-medium text-gray-400">
+                          {task.startTime}
+                        </span>
+                      </td>
+                      <td className="py-2 px-4 border-b border-b-gray-50">
+                        <span className="text-[13px] font-medium text-gray-400">
+                          {task.endTime}
+                        </span>
+                      </td>
+                      <td className="py-2 px-4 border-b border-b-gray-50"></td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

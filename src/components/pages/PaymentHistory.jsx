@@ -1,4 +1,54 @@
 export default function PaymentHistory() {
+  const data = [
+    {
+      date: "19-05-2024",
+      officeName: "Macro brain",
+      totalHours: 8.0,
+      taskName: "abc",
+      startTime: "1:10 pm",
+      endTime: "5:10 am",
+    },
+    {
+      date: "20-05-2024",
+      officeName: "Macro brain",
+      totalHours: 8.0,
+      taskName: "maj",
+      startTime: "1:10 pm",
+      endTime: "5:10 am",
+    },
+    {
+      date: "23-05-2024",
+      officeName: "Macro brain",
+      totalHours: 12.0,
+      taskName: "abc",
+      startTime: "11:58 am",
+      endTime: "11:58 pm",
+    },
+    {
+      date: "22-05-2024",
+      officeName: "Macro brain",
+      totalHours: 12.0,
+      taskName: "abc",
+      startTime: "12:34 pm",
+      endTime: "12:34 am",
+    },
+    {
+      date: "24-05-2024",
+      officeName: "Macro brain",
+      totalHours: 12.0,
+      taskName: "abc",
+      startTime: "12:34 pm",
+      endTime: "12:34 am",
+    },
+    {
+      date: "23-05-2024",
+      officeName: "Macro brain",
+      totalHours: 12.0,
+      taskName: "abc",
+      startTime: "12:47 pm",
+      endTime: "12:47 am",
+    },
+  ];
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
@@ -27,49 +77,40 @@ export default function PaymentHistory() {
                 </th>
               </tr>
             </thead>
-            <tbody>
-              {Array.from({ length: 7 }, (_, i) => (
-                <tr key={i}>
-                  <td className="py-2 px-4 border-b border-b-gray-50">
-                    <div className="flex items-center">
-                      <a
-                        href="#"
-                        className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                      >
-                        Office {i + 1}
-                      </a>
-                    </div>
-                  </td>
-                  <td className="py-2 px-4 border-b border-b-gray-50">
-                    <div className="flex items-center">
-                      <a
-                        href="#"
-                        className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
-                      >
-                        Task {i + 1}
-                      </a>
-                    </div>
-                  </td>
-
-                  <td className="py-2 px-4 border-b border-b-gray-50">
-                    <span className="text-[13px] font-medium text-gray-400">
-                      2024-05-05
-                    </span>
-                  </td>
-                  <td className="py-2 px-4 border-b border-b-gray-50">
-                    <span className="text-[13px] font-medium text-gray-400">
-                      18:30
-                    </span>
-                  </td>
-                  <td className="py-2 px-4 border-b border-b-gray-50">
-                    <span className="text-[13px] font-medium text-green-700">
-                      $20.00
-                    </span>
-                  </td>
-                  <td className="py-2 px-4 border-b border-b-gray-50"></td>
-                </tr>
-              ))}
-            </tbody>
+            {data.map((task, index) => (
+              <tr key={index}>
+                <td className="py-2 px-4 border-b border-b-gray-50">
+                  <div className="flex items-center">
+                    <a
+                      href="#"
+                      className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
+                    >
+                      {task.officeName}
+                    </a>
+                  </div>
+                </td>
+                <td className="py-2 px-4 border-b border-b-gray-50">
+                  <span className="text-[13px] font-medium text-gray-400">
+                    {task.taskName}
+                  </span>
+                </td>
+                <td className="py-2 px-4 border-b border-b-gray-50">
+                  <span className="text-[13px] font-medium text-gray-400">
+                    {task.date}
+                  </span>
+                </td>
+                <td className="py-2 px-4 border-b border-b-gray-50">
+                  <span className="text-[13px] font-medium text-gray-400">
+                    {task.startTime}
+                  </span>
+                </td>
+                <td className="py-2 px-4 border-b border-b-gray-50">
+                  <span className="text-[13px] font-medium text-gray-400">
+                    {task.endTime}
+                  </span>
+                </td>
+              </tr>
+            ))}
           </table>
         </div>
       </div>

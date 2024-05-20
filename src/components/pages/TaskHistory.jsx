@@ -54,25 +54,42 @@ export default function TaskHistory() {
               </tr>
             </thead>
             <tbody>
-              {data.map((item, index) => (
+              {data.map((task, index) => (
                 <tr key={index}>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    {item.officeName}
+                    <div className="flex items-center">
+                      <a
+                        href="#"
+                        className="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"
+                      >
+                        {task.officeName}
+                      </a>
+                    </div>
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    {item.taskName}
+                    <span className="text-[13px] font-medium text-gray-400">
+                      {task.taskName}
+                    </span>
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    {item.date}
+                    <span className="text-[13px] font-medium text-gray-400">
+                      {task.date}
+                    </span>
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    {item.startTime}
+                    <span className="text-[13px] font-medium text-gray-400">
+                      {task.startTime}
+                    </span>
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    {item.endTime}
+                    <span className="text-[13px] font-medium text-gray-400">
+                      {task.endTime}
+                    </span>
                   </td>
                   <td className="py-2 px-4 border-b border-b-gray-50">
-                    {item.totalHours}
+                    <span className="text-[13px] font-medium text-gray-400">
+                      {task.totalHours}hr
+                    </span>
                   </td>
                 </tr>
               ))}
