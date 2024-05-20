@@ -200,7 +200,7 @@ export default function Header({ userProfile }) {
                       />
                       <div className="ml-2">
                         <div className="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">
-                          John Doe
+                          {Name}
                         </div>
                         <div className="text-[11px] text-gray-400">
                           Hello there!
@@ -294,9 +294,7 @@ export default function Header({ userProfile }) {
                 </div>
               </div>
               <div className="p-2 md:block text-left">
-                <h2 className="text-sm font-semibold text-gray-800">
-                  John Doe
-                </h2>
+                <h2 className="text-sm font-semibold text-gray-800">{Name}</h2>
                 {/* <p className="text-xs text-gray-500">Administrator</p> */}
               </div>
             </button>
@@ -307,6 +305,7 @@ export default function Header({ userProfile }) {
             >
               <li>
                 <span
+                  style={{ cursor: "pointer" }}
                   onClick={() => {
                     navigate("/dashboard/profile");
                     setToggleProfile(false);
@@ -317,16 +316,17 @@ export default function Header({ userProfile }) {
                 </span>
               </li>
               <li>
-                <form method="POST" action="">
-                  <a
-                    role="menuitem"
-                    className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50 cursor-pointer"
-                    // onClick="event.preventDefault();
-                    //                 this.closest('form').submit();"
-                  >
-                    Log Out
-                  </a>
-                </form>
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    localStorage.setItem("token", "");
+                    navigate("/");
+                    setToggleProfile(false);
+                  }}
+                  className="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50"
+                >
+                  Logout
+                </span>
               </li>
             </ul>
           </li>

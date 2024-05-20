@@ -29,7 +29,7 @@ export default function Login() {
   const onSubmit = async (data) => {
     const res = await API.UserLogin(data);
 
-    if (res.data.status === "success") {
+    if (res.data.status === true) {
       localStorage.setItem("token", res.data.jwtToken.accessToken);
 
       toast.success(res.data.message, {
@@ -377,7 +377,7 @@ export default function Login() {
               <div>
                 <button
                   type="submit"
-                  className="w-full text-black hover:text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300"
+                  className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
                 >
                   Sign Up
                 </button>

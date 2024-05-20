@@ -7,7 +7,11 @@ export default function SideNav() {
       <div className="fixed left-0 top-0 w-64 h-full bg-[#ffffff] p-4 z-50 sidebar-menu transition-transform">
         <span className="flex items-center pb-4 border-b border-b-gray-800">
           <h2 className="font-bold text-2xl">
-            <span className="bg-[#40A2E3] text-white p-2 rounded-md">
+            <span
+              style={{ cursor: "pointer" }}
+              className="bg-[#40A2E3] text-white p-2 rounded-md"
+              onClick={() => navigate("/dashboard")}
+            >
               Schedular
             </span>
           </h2>
@@ -15,7 +19,10 @@ export default function SideNav() {
         <ul className="mt-4">
           <span className="text-gray-400 font-bold">Activity</span>
           <li className="mb-1 group" onClick={() => navigate("/dashboard")}>
-            <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+            <span
+              style={{ cursor: "pointer" }}
+              className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+            >
               <i className="ri-home-2-line mr-3 text-lg"></i>
               <span className="text-sm">Dashboard</span>
             </span>
@@ -27,26 +34,46 @@ export default function SideNav() {
           >
             <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
               <i className="bx bx-list-ul mr-3 text-lg"></i>
-              <span className="text-sm">Tasks</span>
+              <span style={{ cursor: "pointer" }} className="text-sm">
+                Tasks
+              </span>
             </span>
           </li>
-          <span className="text-gray-400 font-bold">Leave</span>
+          <span
+            style={{ cursor: "pointer" }}
+            className="text-gray-400 font-bold"
+          >
+            Leave
+          </span>
           <li
             className="mb-1 group"
             onClick={() => navigate("/dashboard/leave")}
           >
-            <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+            <span
+              style={{ cursor: "pointer" }}
+              className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+            >
               <i className="bx bx-archive mr-3 text-lg"></i>
-              <span className="text-sm">Leave</span>
+              <span style={{ cursor: "pointer" }} className="text-sm">
+                Leave
+              </span>
             </span>
           </li>
 
-          <span className="text-gray-400 font-bold">History</span>
+          <span
+            style={{ cursor: "pointer" }}
+            className="text-gray-400 font-bold"
+          >
+            History
+          </span>
           <li
             className="mb-1 group"
             onClick={() => navigate("/dashboard/taskHistory")}
           >
-            <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+            <span
+              style={{ cursor: "pointer" }}
+              className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+            >
               <i className="bx bx-task mr-3 text-lg"></i>
               <span className="text-sm">Task History</span>
               <span className="md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-600 bg-red-200 rounded-full">
@@ -58,7 +85,10 @@ export default function SideNav() {
             className="mb-1 group"
             onClick={() => navigate("/dashboard/paymentHistory")}
           >
-            <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+            <span
+              style={{ cursor: "pointer" }}
+              className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+            >
               <i className="bx bx-note mr-3 text-lg"></i>
               <span className="text-sm">Payment </span>
               <span className="md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-600 bg-green-200 rounded-full">
@@ -68,12 +98,20 @@ export default function SideNav() {
           </li>
 
           {/* Profile */}
-          <span className="text-gray-400 font-bold">Profile</span>
+          <span
+            style={{ cursor: "pointer" }}
+            className="text-gray-400 font-bold"
+          >
+            Profile
+          </span>
           <li
             className="mb-1 group"
             onClick={() => navigate("/dashboard/profile")}
           >
-            <span className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+            <span
+              style={{ cursor: "pointer" }}
+              className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"
+            >
               <i className="bx bx-task mr-3 text-lg"></i>
               <span className="text-sm">Profile</span>
             </span>

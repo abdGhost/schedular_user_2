@@ -14,12 +14,7 @@ export default function Leave() {
                     <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                       <div className="md:col-span-5">
                         <label htmlFor="full_name">Reason For Leave</label>
-                        {/* <input
-                          rows="4"
-                          name="full_name"
-                          id="full_name"
-                          className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        /> */}
+
                         <textarea
                           id="message"
                           rows="4"
@@ -31,7 +26,7 @@ export default function Leave() {
                       <div className="md:col-span-2">
                         <label htmlFor="from_date">From Date</label>
                         <input
-                          type="date" // Change the type to 'date' for date picker
+                          type="date"
                           name="from_date"
                           id="from_date"
                           className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
@@ -41,7 +36,7 @@ export default function Leave() {
                       <div className="md:col-span-2">
                         <label htmlFor="to_date">To Date</label>
                         <input
-                          type="date" // Change the type to 'date' for date picker
+                          type="date"
                           name="to_date"
                           id="to_date"
                           className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"

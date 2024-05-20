@@ -2,9 +2,25 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
 
-export default function Profile({ userProfile }) {
-  console.log("============================>>>>>>>>>>>>>>>>>");
-  console.log(userProfile);
+import { useEffect, useState } from "react";
+import * as API from "../../utils/services/apis";
+
+export default function Profile() {
+  const [userProfile, setUserProfile] = useState({});
+
+  useEffect(() => {
+    async function getProfile() {
+      try {
+        const res = await API.UserProfile();
+        console.log("==========================================");
+        console.log(res.data);
+        setUserProfile(res.data);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    getProfile();
+  }, []);
 
   const {
     Name,
@@ -14,8 +30,8 @@ export default function Profile({ userProfile }) {
     HireDate,
     Id,
     MobileNo,
-    office,
-    salary,
+    Office,
+    Salary,
   } = userProfile;
   return (
     <div class="min-h-screen p-2 bg-gray-100 flex items-center justify-center">
@@ -99,7 +115,7 @@ export default function Profile({ userProfile }) {
                       name="address"
                       id="address"
                       class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value={`${office}`}
+                      value={`${Office}`}
                       placeholder=""
                     />
                   </div>
@@ -112,18 +128,10 @@ export default function Profile({ userProfile }) {
                       name="city"
                       id="city"
                       class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value={`${salary}`}
+                      value={`${Salary}`}
                       placeholder=""
                     />
                   </div>
-
-                  {/* <div class="md:col-span-5 text-right">
-                    <div class="inline-flex items-end">
-                      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Submit
-                      </button>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </div>
